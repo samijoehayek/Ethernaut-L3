@@ -16,7 +16,7 @@ contract EthernautL3Solution is Script {
         // We found out that the contructor can be called because it does not have the same name and thus change the owner
         vm.startBroadcast(vm.envUint("PRIVATE_KEY"));
         ethernautl3.Fal1out();
-        vm.endBroadcast();
+        vm.stopBroadcast();
 
         // Check if the owner has changed
         address newOwner = ethernautl3.owner();

@@ -1,10 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.0;
 
-import "openzeppelin-contracts-06/math/SafeMath.sol";
-
 contract EthernautL3 {
-    using SafeMath for uint256;
 
     mapping(address => uint256) allocations;
     address payable public owner;
@@ -21,7 +18,7 @@ contract EthernautL3 {
     }
 
     function allocate() public payable {
-        allocations[msg.sender] = allocations[msg.sender].add(msg.value);
+        allocations[msg.sender] = allocations[msg.sender] + msg.value;
     }
 
     function sendAllocation(address payable allocator) public {
